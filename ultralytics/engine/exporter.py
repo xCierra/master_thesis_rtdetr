@@ -628,7 +628,7 @@ class Exporter:
             config.set_flag(trt.BuilderFlag.FP16)
 
         del self.model
-        torch.cuda.empty_cache()
+        # torch.cuda.empty_cache()  # 关闭显存回收
 
         # Write file
         with builder.build_engine(network, config) as engine, open(f, 'wb') as t:

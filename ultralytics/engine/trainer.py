@@ -397,7 +397,7 @@ class BaseTrainer:
             self.epoch_time = tnow - self.epoch_time_start
             self.epoch_time_start = tnow
             self.run_callbacks('on_fit_epoch_end')
-            torch.cuda.empty_cache()  # clears GPU vRAM at end of epoch, can help with out of memory errors
+            # torch.cuda.empty_cache()  # clears GPU vRAM at end of epoch, can help with out of memory errors  # 关闭显存回收
 
             # Early Stopping
             if RANK != -1:  # if DDP training
@@ -416,7 +416,7 @@ class BaseTrainer:
             if self.args.plots:
                 self.plot_metrics()
             self.run_callbacks('on_train_end')
-        torch.cuda.empty_cache()
+        # torch.cuda.empty_cache()  # 关闭显存回收
         self.run_callbacks('teardown')
 
     def save_model(self):

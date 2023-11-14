@@ -520,7 +520,7 @@ def profile(input, ops, n=10, device=None):
             except Exception as e:
                 LOGGER.info(e)
                 results.append(None)
-            torch.cuda.empty_cache()
+            # torch.cuda.empty_cache()  # 关闭显存回收
     return results
 
 
