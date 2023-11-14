@@ -4,7 +4,7 @@ import numpy as np
 import time
 import altair as alt
 import pandas as pd
-
+from vega_datasets import data
 
 def make_plot(plot_type):
     if plot_type == "scatter_plot":
