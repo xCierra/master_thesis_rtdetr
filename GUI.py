@@ -102,7 +102,8 @@ def make_plot(plot_type):
 
         return c1 + c2
     elif plot_type == "multiline":
-        source = data.stocks()
+        source = pd.read_csv("/workspace/cv-docker/joey04.li/datasets/master_thesis_rtdetr/result_test11.csv")
+        # source = data.stocks()
 
         highlight = alt.selection(type='single', on='mouseover',
                                 fields=['symbol'], nearest=True)
